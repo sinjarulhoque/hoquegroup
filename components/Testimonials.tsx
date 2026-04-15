@@ -1,0 +1,57 @@
+"use client";
+
+import { motion } from "motion/react";
+
+const testimonials = [
+  {
+    quote: "The level of transparency provided by Hoque Group in our logistics operations is unparalleled. A truly digital-first partner.",
+    name: "Michael Schmidt",
+    role: "Operations Director, EuroTrade Gmbh"
+  },
+  {
+    quote: "Reliable, ethical, and highly efficient. Their agricultural exports consistently exceed our quality benchmarks in SE Asia.",
+    name: "Tan Wee Kiat",
+    role: "Supply Chain Lead, ASEAN Agro"
+  },
+  {
+    quote: "A trusted partner for coal imports. Their handling of complex regulatory requirements across borders is commendable.",
+    name: "Rajesh Kumar",
+    role: "Director, Thermal Energy Solutions"
+  }
+];
+
+export function Testimonials() {
+  return (
+    <section className="bg-primary py-24 text-white overflow-hidden relative">
+      <div className="max-w-7xl mx-auto px-8 relative z-10">
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="font-headline text-4xl md:text-5xl font-bold mb-16 text-center"
+        >
+          Global Partner Feedback
+        </motion.h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {testimonials.map((t, idx) => (
+            <motion.div 
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+              className="bg-white/5 backdrop-blur-lg p-10 rounded-lg border border-white/10 flex flex-col justify-between h-full"
+            >
+              <p className="italic text-lg leading-relaxed text-white/90">"{t.quote}"</p>
+              <div className="mt-8 not-italic">
+                <div className="font-bold text-secondary-container text-lg">{t.name}</div>
+                <div className="text-sm text-white/60 mt-1">{t.role}</div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
