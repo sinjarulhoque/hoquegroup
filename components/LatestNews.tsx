@@ -23,26 +23,37 @@ const news = [
 
 export function LatestNews() {
   return (
-    <section id="blog" className="py-24 bg-surface">
+    <section id="blog" className="py-24 bg-surface overflow-hidden">
       <div className="max-w-7xl mx-auto px-8">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-12"
-        >
-          <span className="text-secondary font-bold tracking-[0.2em] uppercase text-sm">Industry Insights</span>
-          <h2 className="text-primary font-headline text-4xl md:text-5xl font-bold mt-4">Latest Updates</h2>
-        </motion.div>
+        <div className="mb-12">
+          <motion.span 
+            initial={{ opacity: 0, y: -15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.4 }}
+            className="inline-block text-secondary font-bold tracking-[0.2em] uppercase text-sm mb-4"
+          >
+            Industry Insights
+          </motion.span>
+          <motion.h2 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.7, ease: [0.0, 0.0, 0.2, 1], delay: 0.1 }}
+            className="text-primary font-headline text-4xl md:text-5xl font-bold"
+          >
+            Latest Updates
+          </motion.h2>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {news.map((item, idx) => (
             <motion.div 
               key={idx}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94], delay: idx * 0.12 }}
               className="group cursor-pointer"
             >
               <div className="overflow-hidden rounded-xl h-64 mb-6 relative">
@@ -50,12 +61,12 @@ export function LatestNews() {
                   src={item.image}
                   alt={item.title}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="object-cover transition-transform duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-105"
                   referrerPolicy="no-referrer"
                 />
               </div>
               <div className="text-secondary text-sm font-bold mb-3 tracking-wide">{item.date}</div>
-              <h4 className="text-2xl font-headline font-bold text-primary group-hover:text-secondary transition-colors leading-snug">
+              <h4 className="text-2xl font-headline font-bold text-primary transition-colors duration-300 group-hover:text-secondary leading-snug">
                 {item.title}
               </h4>
             </motion.div>

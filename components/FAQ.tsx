@@ -23,11 +23,12 @@ export function FAQ() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   return (
-    <section className="py-24 max-w-4xl mx-auto px-8">
+    <section className="py-24 max-w-4xl mx-auto px-8 overflow-hidden">
       <motion.h2 
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.7, ease: [0.0, 0.0, 0.2, 1] }}
         className="text-primary font-headline text-4xl md:text-5xl font-bold text-center mb-16"
       >
         Frequently Asked Questions
@@ -37,23 +38,23 @@ export function FAQ() {
         {faqs.map((faq, idx) => (
           <motion.div 
             key={idx}
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: idx * 0.1 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.6, delay: idx * 0.1 }}
             className="bg-white rounded-lg border border-outline-variant/20 overflow-hidden"
           >
             <button 
               onClick={() => setOpenIdx(openIdx === idx ? null : idx)}
-              className="w-full p-6 flex justify-between items-center text-left hover:bg-surface-bright transition-colors"
+              className="w-full p-6 flex justify-between items-center text-left hover:bg-surface-bright transition-colors group"
             >
-              <span className="text-primary font-bold text-lg pr-8">{faq.q}</span>
+              <span className={`font-bold text-lg pr-8 transition-colors duration-300 ${openIdx === idx ? 'text-[#ffc107]' : 'text-primary group-hover:text-[#ffc107]'}`}>{faq.q}</span>
               <motion.div
                 animate={{ rotate: openIdx === idx ? 180 : 0 }}
-                transition={{ duration: 0.2 }}
+                transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
                 className="flex-shrink-0"
               >
-                <ChevronDown className="w-6 h-6 text-secondary" />
+                <ChevronDown className={`w-6 h-6 transition-colors duration-300 ${openIdx === idx ? 'text-[#ffc107]' : 'text-secondary group-hover:text-[#ffc107]'}`} />
               </motion.div>
             </button>
             <AnimatePresence>
@@ -62,7 +63,7 @@ export function FAQ() {
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
                 >
                   <div className="p-6 pt-0 text-on-surface-variant leading-relaxed border-t border-outline-variant/10">
                     {faq.a}

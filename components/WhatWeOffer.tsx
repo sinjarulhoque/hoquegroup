@@ -38,34 +38,45 @@ const offerings = [
 
 export function WhatWeOffer() {
   return (
-    <section id="services" className="py-24 max-w-7xl mx-auto px-8">
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="mb-16"
-      >
-        <span className="text-secondary font-bold tracking-[0.2em] uppercase text-sm">Our Expertise</span>
-        <h2 className="text-primary font-headline text-4xl md:text-5xl font-bold mt-4">What We Offer</h2>
-      </motion.div>
+    <section id="services" className="py-24 max-w-7xl mx-auto px-8 overflow-hidden">
+      <div className="mb-16">
+        <motion.span 
+          initial={{ opacity: 0, y: -15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.4 }}
+          className="inline-block text-secondary font-bold tracking-[0.2em] uppercase text-sm mb-4"
+        >
+          Our Expertise
+        </motion.span>
+        <motion.h2 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.7, ease: [0.0, 0.0, 0.2, 1], delay: 0.1 }}
+          className="text-primary font-headline text-4xl md:text-5xl font-bold"
+        >
+          What We Offer
+        </motion.h2>
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {offerings.map((offer, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1 }}
-            className="bg-surface-container-low p-8 rounded-lg group hover:bg-primary transition-all duration-500 cursor-pointer"
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94], delay: index * 0.12 }}
+            className="relative bg-white p-8 rounded-lg group hover:-translate-y-2 hover:shadow-[0_16px_40px_rgba(0,0,0,0.14)] transition-all duration-[350ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] cursor-pointer before:absolute before:left-0 before:top-0 before:h-full before:w-0 before:bg-[#ffc107] before:transition-all before:duration-300 hover:before:w-1 overflow-hidden"
           >
-            <div className="w-14 h-14 bg-secondary/10 flex items-center justify-center rounded-lg mb-6 group-hover:bg-secondary transition-colors duration-500">
-              <offer.icon className="w-7 h-7 text-secondary group-hover:text-white transition-colors duration-500" />
+            <div className="w-14 h-14 bg-secondary/10 flex items-center justify-center rounded-lg mb-6 group-hover:scale-110 transition-transform duration-300">
+              <offer.icon className="w-7 h-7 text-secondary" />
             </div>
-            <h3 className="text-2xl font-headline font-bold text-primary group-hover:text-white mb-4 transition-colors duration-500">
+            <h3 className="text-2xl font-headline font-bold text-primary mb-4">
               {offer.title}
             </h3>
-            <p className="text-on-surface-variant group-hover:text-white/80 leading-relaxed transition-colors duration-500">
+            <p className="text-on-surface-variant leading-relaxed">
               {offer.description}
             </p>
           </motion.div>

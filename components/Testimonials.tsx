@@ -25,9 +25,10 @@ export function Testimonials() {
     <section className="bg-primary py-24 text-white overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-8 relative z-10">
         <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.7, ease: [0.0, 0.0, 0.2, 1] }}
           className="font-headline text-4xl md:text-5xl font-bold mb-16 text-center"
         >
           Global Partner Feedback
@@ -37,11 +38,11 @@ export function Testimonials() {
           {testimonials.map((t, idx) => (
             <motion.div 
               key={idx}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="bg-white/5 backdrop-blur-lg p-10 rounded-lg border border-white/10 flex flex-col justify-between h-full"
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94], delay: idx * 0.12 }}
+              className="bg-white/5 backdrop-blur-lg p-10 rounded-lg border border-white/10 flex flex-col justify-between h-full transition-transform duration-300 hover:-translate-y-2 hover:shadow-[0_12px_40px_rgba(0,0,0,0.2)]"
             >
               <p className="italic text-lg leading-relaxed text-white/90">"{t.quote}"</p>
               <div className="mt-8 not-italic">
