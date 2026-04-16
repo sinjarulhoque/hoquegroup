@@ -2,22 +2,26 @@
 
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const companies = [
   {
     name: "Hoque Mercantile",
     desc: "Specializing in multi-commodity trading and international finance facilitation.",
-    borderColor: "border-primary"
+    borderColor: "border-primary",
+    link: "/hoque-mercantile"
   },
   {
     name: "Hoque Industries",
     desc: "Leading the manufacturing sector with rice mills and processing units.",
-    borderColor: "border-secondary"
+    borderColor: "border-secondary",
+    link: "#"
   },
   {
     name: "Hoque Logistics",
     desc: "A robust network of warehousing and transportation across strategic hubs.",
-    borderColor: "border-primary"
+    borderColor: "border-primary",
+    link: "#"
   }
 ];
 
@@ -48,9 +52,9 @@ export function GroupCompanies() {
             >
               <h3 className="text-2xl md:text-3xl font-headline font-bold text-primary mb-4">{company.name}</h3>
               <p className="text-on-surface-variant mb-8 leading-relaxed">{company.desc}</p>
-              <a href="#" className="text-secondary font-bold inline-flex items-center gap-2 transition-all duration-300 group-hover:gap-3">
+              <Link href={company.link} className="text-secondary font-bold inline-flex items-center gap-2 transition-all duration-300 group-hover:gap-3">
                 Learn More <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-              </a>
+              </Link>
             </motion.div>
           ))}
         </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { motion, useScroll, useMotionValueEvent } from "motion/react";
 import { Menu, X, Phone, Mail, Facebook, Twitter, Youtube, Instagram, Search, Globe, ClipboardList, ChevronDown } from "lucide-react";
 
@@ -9,6 +10,8 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const pathname = usePathname();
+  const router = useRouter();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 50);
@@ -41,6 +44,11 @@ export function Navbar() {
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith('#')) {
       e.preventDefault();
+      if (pathname !== "/") {
+        router.push(`/${href}`);
+        setIsMobileMenuOpen(false);
+        return;
+      }
       const target = document.querySelector(href);
       if (target) {
         const headerOffset = 80; // Match scroll-padding-top
@@ -86,10 +94,10 @@ export function Navbar() {
       
       {/* Main Navbar */}
       <motion.header 
-        className={`fixed top-0 md:top-12 w-full z-50 transition-all duration-[400ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${
+        className={`fixed w-full z-50 transition-all duration-[400ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${
           isScrolled 
-            ? "bg-white shadow-[0_2px_20px_rgba(0,0,0,0.1)] py-2 h-[64px]" 
-            : "bg-transparent shadow-none py-4 h-[80px]"
+            ? "top-0 bg-white shadow-[0_2px_20px_rgba(0,0,0,0.1)] py-2 h-[64px]" 
+            : "top-0 md:top-12 bg-transparent shadow-none py-4 h-[80px]"
         }`}
       >
         <nav className="flex justify-between items-center max-w-7xl mx-auto px-8 h-full">

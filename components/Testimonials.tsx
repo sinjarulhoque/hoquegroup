@@ -44,7 +44,7 @@ export function Testimonials() {
               transition={{ duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94], delay: idx * 0.12 }}
               className="bg-white/5 backdrop-blur-lg p-10 rounded-lg border border-white/10 flex flex-col justify-between h-full transition-transform duration-300 hover:-translate-y-2 hover:shadow-[0_12px_40px_rgba(0,0,0,0.2)]"
             >
-              <p className="italic text-lg leading-relaxed text-white/90">"{t.quote}"</p>
+              <p className="italic text-lg leading-relaxed text-white/90">&quot;{t.quote}&quot;</p>
               <div className="mt-8 not-italic">
                 <div className="font-bold text-secondary-container text-lg">{t.name}</div>
                 <div className="text-sm text-white/60 mt-1">{t.role}</div>
