@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import { Phone, Mail, Clock, MapPin } from "lucide-react";
 
 export function Footer() {
   return (
@@ -83,8 +84,29 @@ export function Footer() {
               className="grayscale opacity-70 transition-opacity duration-500 hover:opacity-100"
             ></iframe>
           </motion.div>
-          <div className="flex items-start gap-3">
-            <span>12/A Industrial Estate, Kolkata, India</span>
+          <div className="space-y-4 pt-4">
+            <div className="flex items-start gap-3">
+              <MapPin className="w-5 h-5 text-secondary shrink-0" />
+              <span>12/A Industrial Estate, Kolkata, India</span>
+            </div>
+            <div className="flex items-start gap-3">
+              <Phone className="w-5 h-5 text-secondary shrink-0" />
+              <div className="flex flex-col">
+                <span>+91 033 4600 4025</span>
+                <span>1800 833 9331 (Toll Free)</span>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <Mail className="w-5 h-5 text-secondary shrink-0" />
+              <span>info@hoquegroup.com</span>
+            </div>
+            <div className="flex items-start gap-3">
+              <Clock className="w-5 h-5 text-secondary shrink-0" />
+              <div className="flex flex-col">
+                <span>Mon - Fri: 10:30 - 19:00</span>
+                <span>Sat: 10:30 - 17:00</span>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>

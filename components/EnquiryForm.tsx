@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Mail, Phone, Loader2, Check } from "lucide-react";
+import { Mail, Phone, Loader2, Check, Clock } from "lucide-react";
 import { useState } from "react";
 
 export function EnquiryForm() {
@@ -40,10 +40,10 @@ export function EnquiryForm() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-on-surface-variant text-lg mb-12 leading-relaxed"
         >
-          Connect with our strategic consultants to optimize your import-export operations today.
+          We work 6 days a week, every day excluding major holidays. Contact us through the enquiry form in case of any emergency.
         </motion.p>
         
-        <div className="space-y-8">
+        <div className="space-y-6">
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -51,15 +51,16 @@ export function EnquiryForm() {
             transition={{ duration: 0.7, ease: [0.0, 0.0, 0.2, 1], delay: 0.2 }}
             className="flex items-center gap-6"
           >
-            <div className="w-14 h-14 bg-surface-container-high rounded-full flex items-center justify-center">
-              <Mail className="w-6 h-6 text-primary" />
+            <div className="w-14 h-14 bg-surface-container-high rounded-full flex items-center justify-center shrink-0">
+              <Clock className="w-6 h-6 text-primary" />
             </div>
             <div>
-              <div className="text-sm text-on-surface-variant mb-1">Email us at</div>
-              <div className="font-bold text-primary text-lg">contact@hoquegroup.com</div>
+              <div className="text-sm text-on-surface-variant mb-1">Working Hours</div>
+              <div className="font-bold text-primary">Mon - Fri: 10:30 - 19:00</div>
+              <div className="font-bold text-primary">Sat: 10:30 - 17:00</div>
             </div>
           </motion.div>
-          
+
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -67,12 +68,29 @@ export function EnquiryForm() {
             transition={{ duration: 0.7, ease: [0.0, 0.0, 0.2, 1], delay: 0.3 }}
             className="flex items-center gap-6"
           >
-            <div className="w-14 h-14 bg-surface-container-high rounded-full flex items-center justify-center">
+            <div className="w-14 h-14 bg-surface-container-high rounded-full flex items-center justify-center shrink-0">
               <Phone className="w-6 h-6 text-primary" />
             </div>
             <div>
               <div className="text-sm text-on-surface-variant mb-1">Call us on</div>
-              <div className="font-bold text-primary text-lg">+91 98765 43210</div>
+              <div className="font-bold text-primary">+91 033 4600 4025</div>
+              <div className="font-bold text-primary">1800 833 9331 <span className="text-sm font-normal text-on-surface-variant">(Toll Free)</span></div>
+            </div>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.7, ease: [0.0, 0.0, 0.2, 1], delay: 0.4 }}
+            className="flex items-center gap-6"
+          >
+            <div className="w-14 h-14 bg-surface-container-high rounded-full flex items-center justify-center shrink-0">
+              <Mail className="w-6 h-6 text-primary" />
+            </div>
+            <div>
+              <div className="text-sm text-on-surface-variant mb-1">Email us at</div>
+              <div className="font-bold text-primary text-lg">info@hoquegroup.com</div>
             </div>
           </motion.div>
         </div>

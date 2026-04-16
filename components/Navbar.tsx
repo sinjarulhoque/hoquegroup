@@ -69,11 +69,11 @@ export function Navbar() {
         <div className="flex items-center gap-8">
           <div className="flex items-center gap-2">
             <Phone className="w-4 h-4 text-[#ffc107]" />
-            <span>+01-246-357 ( Any time 24/7 )</span>
+            <span>1800 833 9331 (Toll Free)</span>
           </div>
           <div className="flex items-center gap-2">
             <Mail className="w-4 h-4 text-[#ffc107]" />
-            <span>support@botble.com</span>
+            <span>info@hoquegroup.com</span>
           </div>
         </div>
         <div className="flex items-center gap-4">
