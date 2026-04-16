@@ -15,7 +15,7 @@ const companies = [
     name: "Hoque Industries",
     desc: "Leading the manufacturing sector with rice mills and processing units.",
     borderColor: "border-secondary",
-    link: "#"
+    link: "/hoque-industries"
   },
   {
     name: "Hoque Logistics",
