@@ -55,15 +55,19 @@ export function StatsStrip() {
       className="bg-[#0D2E3D] py-[30px] w-full"
     >
       <div className="max-w-7xl mx-auto px-8">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-0 text-center divide-y md:divide-y-0 md:divide-x divide-[#B8960C]/30">
+        <div className="grid grid-cols-2 lg:grid-cols-5 text-center lg:divide-x lg:divide-[#B8960C]/30 gap-y-4 lg:gap-y-0">
           {stats.map((stat, idx) => (
-            <div key={idx} className="flex flex-col items-center justify-center py-4 md:py-0">
+            <div key={idx} className={`flex flex-col items-center justify-center py-4 lg:py-0 relative ${idx === 4 ? 'col-span-2 lg:col-span-1' : ''}`}>
               <div className="text-white text-[44px] font-bold leading-none mb-2">
                 <Counter value={stat.value} suffix={stat.suffix} />
               </div>
-              <div className="text-[#B8960C] text-[11px] uppercase tracking-[0.12em] font-medium">
+              <div className="text-[#B8960C] text-[11px] uppercase tracking-[0.12em] font-medium mb-4 lg:mb-0">
                 {stat.label}
               </div>
+              {/* Mobile bottom border (visible only on mobile) */}
+              {idx < 4 && (
+                <div className="lg:hidden absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-[1px] bg-[#B8960C]/30" />
+              )}
             </div>
           ))}
         </div>

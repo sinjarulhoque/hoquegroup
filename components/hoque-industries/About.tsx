@@ -88,7 +88,7 @@ export function About() {
         >
           <div className="relative w-full h-[320px] rounded-[14px] overflow-hidden">
             <Image
-              src="https://images.unsplash.com/photo-1500382017468-9049fed747ef"
+              src="https://picsum.photos/seed/farm/800/600"
               alt="Aerial agricultural farmland with harvested rice fields"
               fill
               className="object-cover"

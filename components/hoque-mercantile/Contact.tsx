@@ -27,7 +27,7 @@ export function Contact() {
   const isFocused = (field: string) => focusedField === field || (values as any)[field] !== "";
 
   return (
-    <section className="bg-[#F3F4F6] py-[90px] px-8 md:px-[80px] overflow-hidden">
+    <section className="bg-[#F3F4F6] py-[90px] px-8 md:px-[80px] overflow-hidden" id="contact">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <span className="text-[#B8960C] text-[12px] uppercase tracking-wider font-bold block mb-4">

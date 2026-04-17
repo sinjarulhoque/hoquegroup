@@ -27,7 +27,7 @@ export function CSR() {
         >
           <motion.div style={{ y }} className="absolute inset-[-20%] w-[140%] h-[140%]">
             <Image
-              src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b"
+              src="https://picsum.photos/seed/school/800/600"
               alt="Rural school children"
               fill
               className="object-cover"
@@ -88,9 +88,9 @@ export function CSR() {
           </div>
 
           <div>
-            <button className="bg-[#B8960C] text-white px-[32px] py-[14px] rounded-[6px] font-medium text-[15px] hover:bg-[#9a7d0a] transition-colors">
+            <a href="https://www.hoquegroup.com" target="_blank" rel="noopener noreferrer" className="inline-block bg-[#B8960C] text-white px-[32px] py-[14px] rounded-[6px] font-medium text-[15px] hover:bg-[#9a7d0a] transition-colors">
               Learn More About Our CSR →
-            </button>
+            </a>
           </div>
         </motion.div>
       </div>

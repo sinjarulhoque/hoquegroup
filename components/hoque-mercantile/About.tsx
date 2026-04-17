@@ -73,7 +73,7 @@ export function About() {
         >
           <div className="relative w-full aspect-[4/3] rounded-[12px] overflow-hidden shadow-lg">
             <Image
-              src="https://images.unsplash.com/photo-1586201375761-83865001e31c"
+              src="https://picsum.photos/seed/rice/800/600"
               alt="Modern rice mill interior"
               fill
               className="object-cover"
@@ -82,7 +82,7 @@ export function About() {
           </div>
           <div className="relative w-[60%] aspect-[4/3] rounded-[10px] overflow-hidden shadow-2xl ml-auto -mt-[40px] z-10 border-4 border-white">
             <Image
-              src="https://images.unsplash.com/photo-1504674900247-0877df9cc836"
+              src="https://picsum.photos/seed/food/800/600"
               alt="Agricultural harvest"
               fill
               className="object-cover"

@@ -10,7 +10,7 @@ export function Hero() {
     <section className="relative w-full h-[600px] md:h-[560px] overflow-hidden">
       {/* Background Image */}
       <Image
-        src="https://images.unsplash.com/photo-1578575437130-527eed3abbec"
+        src="https://picsum.photos/seed/port/1920/1080"
         alt="Cargo shipping port"
         fill
         className="object-cover"
@@ -59,11 +59,11 @@ export function Hero() {
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
           className="flex flex-col sm:flex-row gap-4"
         >
-          <button className="bg-[#B8960C] text-white px-[32px] py-[14px] rounded-[6px] font-medium text-[15px] hover:bg-[#9a7d0a] transition-colors">
+          <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="bg-[#B8960C] text-white px-[32px] py-[14px] rounded-[6px] font-medium text-[15px] hover:bg-[#9a7d0a] transition-colors">
             Enquire Now →
           </button>
-          <button className="border-2 border-white text-white px-[32px] py-[14px] rounded-[6px] font-medium text-[15px] hover:bg-white hover:text-[#0D2E3D] transition-colors">
-            Download Profile
+          <button onClick={() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })} className="border-2 border-white text-white px-[32px] py-[14px] rounded-[6px] font-medium text-[15px] hover:bg-white hover:text-[#0D2E3D] transition-colors">
+            View Products
           </button>
         </motion.div>
       </div>

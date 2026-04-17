@@ -15,13 +15,13 @@ const companies = [
     title: "Hoque Logistics Pvt Ltd",
     desc: "Pan-India domestic transportation, warehousing, and complete supply chain logistics arm of Hoque Group.",
     featured: false,
-    link: "#"
+    link: "/hoque-logistics"
   },
   {
     title: "Kadbanu Charitable Trust",
     desc: "CSR wing of Hoque Group — serving rural Murshidabad with education, healthcare and community welfare.",
     featured: true,
-    link: "#"
+    link: "https://www.hoquegroup.com"
   }
 ];
 

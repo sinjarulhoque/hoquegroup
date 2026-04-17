@@ -27,7 +27,7 @@ export function MakeInIndia() {
         >
           <motion.div style={{ y }} className="absolute inset-0 w-full h-[130%] -top-[15%]">
             <Image
-              src="https://images.unsplash.com/photo-1578575437130-527eed3abbec"
+              src="https://picsum.photos/seed/port2/800/600"
               alt="Indian export cargo ship loaded with containers at Kolkata port"
               fill
               className="object-cover"

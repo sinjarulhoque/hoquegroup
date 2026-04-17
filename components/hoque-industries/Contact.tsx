@@ -23,7 +23,7 @@ export function Contact() {
   };
 
   return (
-    <section className="bg-white py-[90px] px-8 md:px-[80px] overflow-hidden">
+    <section className="bg-white py-[90px] px-8 md:px-[80px] overflow-hidden" id="contact">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <span className="text-[#B8960C] text-[12px] uppercase tracking-wider font-bold block mb-4">

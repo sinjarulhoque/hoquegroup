@@ -9,19 +9,19 @@ const companies = [
     title: "Hoque Industries",
     desc: "Star Export House recognized by Govt. of India — exporting agricultural products and garments globally.",
     featured: false,
-    link: "#"
+    link: "/hoque-industries"
   },
   {
     title: "Hoque Logistics",
     desc: "Domestic pan-India transportation and warehousing — complete logistics arm of Hoque Group.",
     featured: false,
-    link: "#"
+    link: "/hoque-logistics"
   },
   {
     title: "Kadbanu Charitable Trust",
     desc: "Social welfare wing serving rural Murshidabad through education, healthcare, and community programs.",
     featured: true,
-    link: "#"
+    link: "https://www.hoquegroup.com"
   }
 ];
 

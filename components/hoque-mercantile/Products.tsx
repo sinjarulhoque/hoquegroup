@@ -19,14 +19,14 @@ const exportProducts = [
     tag: "Export",
     tagColor: "yellow",
     desc: "Fresh red onions sourced from major Indian growing regions.",
-    image: "https://images.unsplash.com/photo-1587049633312-d628ae50a8ae"
+    image: "https://picsum.photos/seed/redonion1/800/600"
   },
   {
     title: "Fresh Fruits",
     tag: "Export",
     tagColor: "yellow",
     desc: "Pomegranate, grapes, and seasonal fresh fruits.",
-    image: "https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea"
+    image: "https://picsum.photos/seed/fruits/800/600"
   },
   {
     title: "Mustard De-oiled Cake",
@@ -40,35 +40,35 @@ const exportProducts = [
     tag: "Export",
     tagColor: "yellow",
     desc: "Nutritious rapeseed extraction meal for livestock feed.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64"
+    image: "https://picsum.photos/seed/rapeseed/800/600"
   },
   {
     title: "Indian Spices",
     tag: "Export",
     tagColor: "yellow",
     desc: "Cumin, coriander, turmeric and premium Indian spice blends.",
-    image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d"
+    image: "https://picsum.photos/seed/spices/800/600"
   },
   {
     title: "Stone Chips and Boulders",
     tag: "Export",
     tagColor: "navy",
     desc: "Construction grade stone chips and boulders for export.",
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4"
+    image: "https://picsum.photos/seed/stonechips1/800/600"
   },
   {
     title: "Readymade Garments",
     tag: "Export",
     tagColor: "navy",
     desc: "Ready-to-wear garments for Bangladesh and UAE markets.",
-    image: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e"
+    image: "https://picsum.photos/seed/garments/800/600"
   },
   {
     title: "Steam Coal",
     tag: "Import",
     tagColor: "navy",
     desc: "Non-coking high grade steam coal imported from Indonesia.",
-    image: "https://images.unsplash.com/photo-1581093806997-124204d9fa9d"
+    image: "https://picsum.photos/seed/steamcoal/800/600"
   }
 ];
 
@@ -78,21 +78,21 @@ const domesticProducts = [
     tag: "Domestic",
     tagColor: "navy",
     desc: "Sold domestically across West Bengal and Eastern India.",
-    image: "https://images.unsplash.com/photo-1586201375761-83865001e31c"
+    image: "https://picsum.photos/seed/rice/800/600"
   },
   {
     title: "Red Onion",
     tag: "Domestic",
     tagColor: "navy",
     desc: "Domestic wholesale supply to retailers and processors.",
-    image: "https://images.unsplash.com/photo-1587049633312-d628ae50a8ae"
+    image: "https://picsum.photos/seed/redonion2/800/600"
   },
   {
     title: "Sand",
     tag: "Domestic",
     tagColor: "navy",
     desc: "Sand mining and domestic supply operations.",
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4"
+    image: "https://picsum.photos/seed/stonechips2/800/600"
   }
 ];
 
@@ -100,7 +100,7 @@ export function Products() {
   const [activeTab, setActiveTab] = useState("Export Products");
 
   return (
-    <section className="bg-white py-[100px] px-8 md:px-[80px] overflow-hidden">
+    <section className="bg-white py-[100px] px-8 md:px-[80px] overflow-hidden" id="products">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <span className="text-[#B8960C] text-[12px] uppercase tracking-wider font-bold block mb-4">
@@ -172,7 +172,7 @@ export function Products() {
               >
                 <div className="w-full lg:w-1/2 h-[300px] lg:h-auto relative">
                   <Image
-                    src="https://images.unsplash.com/photo-1586201375761-83865001e31c"
+                    src="https://picsum.photos/seed/rice/800/600"
                     alt="Modern rice mill interior"
                     fill
                     className="object-cover"
@@ -201,7 +201,7 @@ export function Products() {
                       </li>
                     ))}
                   </ul>
-                  <button className="bg-[#B8960C] text-white px-[28px] py-[12px] rounded-[6px] font-medium text-[15px] hover:bg-[#9a7d0a] transition-colors">
+                  <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="bg-[#B8960C] text-white px-[28px] py-[12px] rounded-[6px] font-medium text-[15px] hover:bg-[#9a7d0a] transition-colors">
                     Enquire About Rice Supply →
                   </button>
                 </div>

@@ -7,10 +7,10 @@ import { Star } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative w-full h-[500px] overflow-hidden">
+    <section className="relative w-full h-[600px] md:h-[560px] overflow-hidden">
       {/* Background Image */}
       <Image
-        src="https://images.unsplash.com/photo-1565372195458-9de0b320ef04"
+        src="https://picsum.photos/seed/warehouse_hero/1920/1080"
         alt="Aerial view of Indian agricultural export warehouse with cargo containers"
         fill
         className="object-cover object-center"
@@ -30,7 +30,7 @@ export function Hero() {
       </div>
 
       {/* Content */}
-      <div className="absolute inset-0 flex flex-col justify-center px-8 md:pl-[80px] max-w-[660px] z-10 pt-[80px]">
+      <div className="absolute inset-0 flex flex-col justify-center px-8 md:px-[80px] max-w-[660px] z-10 pt-[80px] md:pt-0">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -67,11 +67,11 @@ export function Hero() {
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
           className="flex flex-col sm:flex-row gap-4 mt-[32px]"
         >
-          <button className="bg-[#B8960C] text-white px-[34px] py-[14px] rounded-[6px] font-bold text-[15px] hover:bg-[#9A7B0A] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(184,150,12,0.4)] transition-all duration-300">
+          <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="bg-[#B8960C] text-white px-[34px] py-[14px] rounded-[6px] font-bold text-[15px] hover:bg-[#9A7B0A] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(184,150,12,0.4)] transition-all duration-300">
             Enquire Now →
           </button>
-          <button className="border-2 border-white text-white px-[34px] py-[14px] rounded-[6px] font-medium text-[15px] hover:bg-white hover:text-[#0D2E3D] transition-colors duration-300">
-            Download Company Profile
+          <button onClick={() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' })} className="border-2 border-white text-white px-[34px] py-[14px] rounded-[6px] font-medium text-[15px] hover:bg-white hover:text-[#0D2E3D] transition-colors duration-300">
+            View Our Products
           </button>
         </motion.div>
       </div>

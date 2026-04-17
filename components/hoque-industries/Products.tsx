@@ -15,12 +15,12 @@ const exportProducts = [
   {
     title: "Red Onion",
     desc: "Fresh high-grade red onions sourced from top growing regions, packed and exported to Bangladesh markets.",
-    image: "https://images.unsplash.com/photo-1587049633312-d628ae50a8ae"
+    image: "https://picsum.photos/seed/redonion/800/600"
   },
   {
     title: "Fresh Fruits",
     desc: "Pomegranates, grapes and seasonal Indian fresh fruits exported with cold chain compliance.",
-    image: "https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea"
+    image: "https://picsum.photos/seed/fruits/800/600"
   },
   {
     title: "Mustard De-oiled Cake",
@@ -38,17 +38,17 @@ const domesticProducts = [
   {
     title: "Rice",
     desc: "Domestic wholesale supply of quality rice across West Bengal and Eastern India.",
-    image: "https://images.unsplash.com/photo-1586201375761-83865001e31c"
+    image: "https://picsum.photos/seed/rice/800/600"
   },
   {
     title: "Red Onion",
     desc: "Bulk domestic supply to retailers, wholesalers and processors across India.",
-    image: "https://images.unsplash.com/photo-1587049633312-d628ae50a8ae"
+    image: "https://picsum.photos/seed/redonion2/800/600"
   },
   {
     title: "Sand",
     desc: "Sand mining and domestic supply operations serving construction industries in Bengal.",
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4"
+    image: "https://picsum.photos/seed/sand/800/600"
   }
 ];
 
@@ -56,7 +56,7 @@ export function Products() {
   const [activeTab, setActiveTab] = useState("Export Products");
 
   return (
-    <section className="bg-white py-[100px] px-8 md:px-[80px] overflow-hidden">
+    <section className="bg-white py-[100px] px-8 md:px-[80px] overflow-hidden" id="products">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <span className="text-[#B8960C] text-[12px] uppercase tracking-wider font-bold block mb-4">
@@ -131,7 +131,7 @@ export function Products() {
               >
                 <div className="w-full lg:w-[45%] h-[300px] lg:h-auto relative">
                   <Image
-                    src="https://images.unsplash.com/photo-1451187580459-43490279c0fa"
+                    src="https://picsum.photos/seed/globe/800/600"
                     alt="Global trade network"
                     fill
                     className="object-cover"
@@ -160,7 +160,7 @@ export function Products() {
                       </li>
                     ))}
                   </ul>
-                  <button className="bg-[#B8960C] text-white px-[28px] py-[12px] rounded-[6px] font-medium text-[15px] hover:bg-[#9a7d0a] transition-colors">
+                  <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="bg-[#B8960C] text-white px-[28px] py-[12px] rounded-[6px] font-medium text-[15px] hover:bg-[#9a7d0a] transition-colors">
                     Enquire About Partnerships →
                   </button>
                 </div>

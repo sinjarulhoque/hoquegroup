@@ -66,9 +66,9 @@ export function CSR() {
             ))}
           </div>
 
-          <button className="border-2 border-[#B8960C] text-[#B8960C] px-[28px] py-[12px] rounded-[6px] font-bold text-[15px] hover:bg-[#B8960C] hover:text-white transition-colors duration-300">
+          <a href="https://www.hoquegroup.com" target="_blank" rel="noopener noreferrer" className="inline-block border-2 border-[#B8960C] text-[#B8960C] px-[28px] py-[12px] rounded-[6px] font-bold text-[15px] hover:bg-[#B8960C] hover:text-white transition-colors duration-300">
             Learn More About CSR →
-          </button>
+          </a>
         </motion.div>
 
         {/* Right Column (50%) */}
@@ -81,7 +81,7 @@ export function CSR() {
         >
           <div className="relative w-full h-[260px] rounded-[14px] overflow-hidden">
             <Image
-              src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b"
+              src="https://picsum.photos/seed/school2/800/600"
               alt="Rural children in classroom Bengal"
               fill
               className="object-cover"
@@ -90,7 +90,7 @@ export function CSR() {
           </div>
           <div className="relative w-[65%] h-[200px] rounded-[10px] overflow-hidden ml-auto -mt-[40px] z-10 shadow-xl border-4 border-white">
             <Image
-              src="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf"
+              src="https://picsum.photos/seed/hospital/800/600"
               alt="Medical camp doctor with rural patient"
               fill
               className="object-cover"

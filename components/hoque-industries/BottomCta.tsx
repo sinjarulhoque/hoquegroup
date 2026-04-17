@@ -20,12 +20,12 @@ export function BottomCta() {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="bg-[#0D2E3D] text-white px-[36px] py-[15px] rounded-[6px] font-bold text-[15px] hover:bg-[#071a22] hover:-translate-y-[2px] transition-all duration-300">
+          <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="bg-[#0D2E3D] text-white px-[36px] py-[15px] rounded-[6px] font-bold text-[15px] hover:bg-[#071a22] hover:-translate-y-[2px] transition-all duration-300">
             Get a Quote →
           </button>
-          <button className="border-2 border-[#0D2E3D] text-[#0D2E3D] px-[36px] py-[15px] rounded-[6px] font-medium text-[15px] hover:bg-[#0D2E3D] hover:text-white transition-colors duration-300">
+          <a href="#" className="border-2 border-[#0D2E3D] text-[#0D2E3D] px-[36px] py-[15px] rounded-[6px] font-medium text-[15px] hover:bg-[#0D2E3D] hover:text-white transition-colors duration-300 inline-block">
             Download Company Profile
-          </button>
+          </a>
         </div>
       </div>
     </motion.section>

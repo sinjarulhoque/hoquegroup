@@ -21,13 +21,13 @@ const companies = [
     name: "Hoque Logistics",
     desc: "A robust network of warehousing and transportation across strategic hubs.",
     borderColor: "border-primary",
-    link: "#"
+    link: "/hoque-logistics"
   }
 ];
 
 export function GroupCompanies() {
   return (
-    <section className="py-24 bg-surface-container-low overflow-hidden">
+    <section className="py-24 bg-surface-container-low overflow-hidden" id="group-companies">
       <div className="max-w-7xl mx-auto px-8">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
