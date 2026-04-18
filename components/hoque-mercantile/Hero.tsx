@@ -7,7 +7,7 @@ import { Star, Leaf } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative w-full h-[600px] md:h-[560px] overflow-hidden">
+    <section className="relative w-full h-[650px] md:h-[600px] overflow-hidden">
       {/* Background Image */}
       <Image
         src="https://picsum.photos/seed/port/1920/1080"
@@ -21,16 +21,16 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-[#0D2E3D] via-[#0D2E3D]/80 to-transparent opacity-80" />
 
       {/* Breadcrumb */}
-      <div className="absolute top-[100px] md:top-[120px] left-8 md:left-20 z-20 text-[13px] text-gray-300 flex items-center gap-2">
+      <div className="absolute top-[100px] md:top-[120px] left-8 md:left-[80px] z-20 text-[13px] text-gray-300 flex items-center gap-2">
         <Link href="/" className="hover:text-white transition-colors">Home</Link>
         <span>/</span>
         <span className="hover:text-white transition-colors cursor-pointer">Group Companies</span>
         <span>/</span>
-        <span className="text-white">Hoque Mercantile</span>
+        <span className="text-[#B8960C]">Hoque Mercantile</span>
       </div>
 
       {/* Content */}
-      <div className="absolute inset-0 flex flex-col justify-center px-8 md:px-20 max-w-[680px] z-10 pt-[80px]">
+      <div className="relative w-full h-full px-8 md:px-[80px] max-w-[680px] z-10 pt-[160px] md:pt-[190px]">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}

@@ -8,35 +8,35 @@ export function RelatedCompanies() {
     {
       title: "Hoque Mercantile Pvt Ltd",
       borderTitle: "border-[#0D2E3D]",
-      desc: "Multi-commodity agricultural export specialist — with in-house Rice Mill at Murshidabad and markets in Bangladesh and UAE.",
+      desc: "Agricultural export specialist with in-house Rice Mill at Murshidabad — exporting to Bangladesh and UAE.",
       link: "/hoque-mercantile"
     },
     {
       title: "Hoque Industries Pvt Ltd",
       borderTitle: "border-[#0D2E3D]",
-      desc: "Star Export House recognized by Govt. of India — exporting agricultural products, stone chips, and garments globally with APEDA certification.",
+      desc: "Star Export House recognized by Govt. of India — APEDA and BNCCI member exporting agricultural commodities globally.",
       link: "/hoque-industries"
     },
     {
-      title: "Kadbanu Charitable Trust",
-      borderTitle: "border-[#B8960C]",
-      desc: "Social welfare CSR wing — serving rural Murshidabad through education, free healthcare, and community welfare programs year-round.",
-      link: "/kadbanu-trust"
+      title: "Hoque Logistics Pvt Ltd",
+      borderTitle: "border-[#0D2E3D]",
+      desc: "Pan-India transportation and logistics arm — domestic supply chain, warehousing, and pulses distribution across India.",
+      link: "/hoque-logistics"
     }
   ];
 
   return (
-    <section className="bg-white py-[80px] px-8 md:px-[80px] overflow-hidden">
+    <section className="bg-[#F3F4F6] py-[80px] px-8 md:px-[80px] overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 flex flex-col items-center">
           <span className="text-[#B8960C] text-[12px] uppercase tracking-wider font-bold block mb-4">
             HOQUE GROUP
           </span>
           <h2 className="text-[#0D2E3D] text-[38px] font-playfair font-bold mb-4">
-            Explore Our Other Group Companies
+            Explore Our Group Companies
           </h2>
           <p className="text-[#4B5563] text-[15px]">
-            A diversified group built on trust, quality, and national ambition.
+            The business arm that makes this social mission possible.
           </p>
         </div>
 
@@ -58,7 +58,7 @@ export function RelatedCompanies() {
               </p>
               <Link 
                 href={company.link} 
-                className="text-[#B8960C] font-medium text-[15px] hover:underline transition-all mt-auto inline-flex items-center"
+                className="text-[#B8960C] font-semibold text-[15px] hover:text-[#9A7B0A] hover:underline transition-all mt-auto inline-flex items-center"
               >
                 Learn More →
               </Link>

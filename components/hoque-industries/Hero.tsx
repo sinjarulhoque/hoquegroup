@@ -7,7 +7,7 @@ import { Star } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative w-full h-[600px] md:h-[560px] overflow-hidden">
+    <section className="relative w-full h-[650px] md:h-[600px] overflow-hidden">
       {/* Background Image */}
       <Image
         src="https://picsum.photos/seed/warehouse_hero/1920/1080"
@@ -21,7 +21,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-[#0D2E3D] via-[#0D2E3D]/80 to-transparent opacity-90" style={{ background: "linear-gradient(to right, rgba(13, 46, 61, 0.82) 0%, rgba(13, 46, 61, 0.35) 100%)" }} />
 
       {/* Breadcrumb */}
-      <div className="absolute top-[100px] md:top-[120px] left-8 md:left-20 z-20 text-[13px] text-gray-300 flex items-center gap-2">
+      <div className="absolute top-[100px] md:top-[120px] left-8 md:left-[80px] z-20 text-[13px] text-gray-300 flex items-center gap-2">
         <Link href="/" className="hover:text-white transition-colors">Home</Link>
         <span>/</span>
         <span className="hover:text-white transition-colors cursor-pointer">Group Companies</span>
@@ -30,7 +30,7 @@ export function Hero() {
       </div>
 
       {/* Content */}
-      <div className="absolute inset-0 flex flex-col justify-center px-8 md:px-[80px] max-w-[660px] z-10 pt-[80px] md:pt-0">
+      <div className="relative w-full h-full px-8 md:px-[80px] max-w-[660px] z-10 pt-[160px] md:pt-[190px]">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

@@ -19,46 +19,46 @@ export function StatsStrip() {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-y-8 divide-x divide-transparent md:divide-[#B8960C]/30 text-center">
           
           <div className="flex flex-col items-center">
-            <div className="text-white font-bold text-[38px] lg:text-[44px] leading-tight">
-              {isInView ? <Counter value={2018} duration={1.8} /> : "0"}
+            <div className="text-white font-bold text-[38px] lg:text-[44px] leading-tight flex items-center justify-center h-[56px] lg:h-[66px]">
+              {isInView ? <Counter value={5} duration={1.8} /> : "0"}+
             </div>
-            <div className="text-[#B8960C] uppercase text-[11px] font-bold tracking-[0.12em] mt-1 text-center">Year Founded</div>
+            <div className="text-[#B8960C] uppercase text-[11px] font-bold tracking-[0.12em] mt-1 text-center">CSR Programs</div>
           </div>
 
           <div className="flex flex-col items-center">
-            <div className="text-white font-bold text-[38px] lg:text-[44px] leading-tight">
-              {isInView ? <Counter value={6} duration={1.8} /> : "0"}+
+            <div className="text-white font-bold text-[38px] lg:text-[44px] leading-tight flex items-center justify-center h-[56px] lg:h-[66px]">
+              {isInView ? <Counter value={1000} duration={1.8} /> : "0"}+
             </div>
-            <div className="text-[#B8960C] uppercase text-[11px] font-bold tracking-[0.12em] mt-1 text-center">Service Categories</div>
+            <div className="text-[#B8960C] uppercase text-[11px] font-bold tracking-[0.12em] mt-1 text-center">Families Served</div>
           </div>
 
-          <div className="flex flex-col items-center md:col-span-1 col-span-2">
-            <div className="text-white font-bold text-[28px] lg:text-[36px] flex items-center justify-center h-[56px] lg:h-[66px] whitespace-nowrap w-full">
+          <div className="flex flex-col items-center col-span-2 md:col-span-1">
+            <div className="text-white font-bold text-[24px] lg:text-[28px] xl:text-[32px] leading-tight flex items-center justify-center h-[56px] lg:h-[66px] whitespace-nowrap w-full">
               {isInView ? (
                 <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
-                  Pan-India
+                  Murshidabad
                 </motion.span>
               ) : null}
             </div>
-            <div className="text-[#B8960C] uppercase text-[11px] font-bold tracking-[0.12em] mt-1 text-center">Coverage Network</div>
+            <div className="text-[#B8960C] uppercase text-[11px] font-bold tracking-[0.12em] mt-1 text-center">Primary Focus</div>
           </div>
 
           <div className="flex flex-col items-center">
-            <div className="text-white font-bold text-[38px] lg:text-[44px] leading-tight">
-              {isInView ? <Counter value={100} duration={1.8} /> : "0"}%
-            </div>
-            <div className="text-[#B8960C] uppercase text-[11px] font-bold tracking-[0.12em] mt-1 text-center">Shipment Insurance</div>
-          </div>
-
-          <div className="flex flex-col items-center">
-            <div className="text-white font-bold text-[38px] lg:text-[44px] leading-tight">
+            <div className="text-white font-bold text-[24px] lg:text-[28px] xl:text-[32px] leading-tight flex items-center justify-center h-[56px] lg:h-[66px] whitespace-nowrap w-full">
               {isInView ? (
-                <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
-                  24/7
+                 <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
+                  Annual
                 </motion.span>
-              ) : "0"}
+              ) : null}
             </div>
-            <div className="text-[#B8960C] uppercase text-[11px] font-bold tracking-[0.12em] mt-1 text-center">Customer Support</div>
+            <div className="text-[#B8960C] uppercase text-[11px] font-bold tracking-[0.12em] mt-1 text-center">Winter Relief</div>
+          </div>
+
+          <div className="flex flex-col items-center">
+            <div className="text-white font-bold text-[38px] lg:text-[44px] leading-tight flex items-center justify-center h-[56px] lg:h-[66px]">
+              {isInView ? <Counter value={1} duration={1.8} /> : "0"}
+            </div>
+            <div className="text-[#B8960C] uppercase text-[11px] font-bold tracking-[0.12em] mt-1 text-center">Medical Centre</div>
           </div>
 
         </div>

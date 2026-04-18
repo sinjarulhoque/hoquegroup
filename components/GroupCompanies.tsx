@@ -22,6 +22,12 @@ const companies = [
     desc: "A robust network of warehousing and transportation across strategic hubs.",
     borderColor: "border-primary",
     link: "/hoque-logistics"
+  },
+  {
+    name: "Kadbanu Trust",
+    desc: "CSR wing serving rural Bengal with healthcare and education.",
+    borderColor: "border-secondary",
+    link: "/kadbanu-trust"
   }
 ];
 
@@ -40,7 +46,7 @@ export function GroupCompanies() {
           <h2 className="text-primary font-headline text-4xl md:text-5xl font-bold mt-4">Group Companies</h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {companies.map((company, idx) => (
             <motion.div 
               key={idx}

@@ -21,7 +21,7 @@ const companies = [
     title: "Kadbanu Charitable Trust",
     desc: "Social welfare wing serving rural Murshidabad through education, healthcare, and community programs.",
     featured: true,
-    link: "https://www.hoquegroup.com"
+    link: "/kadbanu-trust"
   }
 ];
 

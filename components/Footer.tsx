@@ -81,8 +81,8 @@ export function Footer() {
           <ul className="space-y-4 mb-8">
             <li><Link className={`text-white hover:text-[#B8960C] transition-colors ${pathname === '/hoque-mercantile' ? 'font-bold' : ''}`} href="/hoque-mercantile">Hoque Mercantile Pvt Ltd</Link></li>
             <li><Link className={`text-white hover:text-[#B8960C] transition-colors ${pathname === '/hoque-industries' ? 'font-bold' : ''}`} href="/hoque-industries">Hoque Industries Pvt Ltd</Link></li>
-            <li><Link className={`text-white hover:text-[#B8960C] transition-colors ${pathname === '/hoque-logistics' ? 'font-bold text-[#B8960C]' : ''}`} href="/hoque-logistics">Hoque Logistics Pvt Ltd</Link></li>
-            <li><a className="text-white hover:text-[#B8960C] transition-colors" href="#">Kadbanu Charitable Trust</a></li>
+            <li><Link className={`text-white hover:text-[#B8960C] transition-colors ${pathname === '/hoque-logistics' ? 'font-bold' : ''}`} href="/hoque-logistics">Hoque Logistics Pvt Ltd</Link></li>
+            <li><Link className={`text-white hover:text-[#B8960C] transition-colors ${pathname === '/kadbanu-trust' ? 'font-bold text-[#B8960C]' : ''}`} href="/kadbanu-trust">Kadbanu Charitable Trust</Link></li>
           </ul>
 
           <div className="space-y-3">

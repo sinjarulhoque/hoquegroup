@@ -66,7 +66,7 @@ export function CSR() {
             ))}
           </div>
 
-          <a href="https://www.hoquegroup.com" target="_blank" rel="noopener noreferrer" className="inline-block border-2 border-[#B8960C] text-[#B8960C] px-[28px] py-[12px] rounded-[6px] font-bold text-[15px] hover:bg-[#B8960C] hover:text-white transition-colors duration-300">
+          <a href="/kadbanu-trust" className="inline-block border-2 border-[#B8960C] text-[#B8960C] px-[28px] py-[12px] rounded-[6px] font-bold text-[15px] hover:bg-[#B8960C] hover:text-white transition-colors duration-300">
             Learn More About CSR →
           </a>
         </motion.div>
