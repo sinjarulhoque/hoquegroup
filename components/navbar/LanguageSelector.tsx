@@ -102,7 +102,7 @@ export function LanguageSelector({ showToast }: LanguageSelectorProps) {
             exit={{ opacity: 0, y: -10, scaleY: 0.95 }}
             transition={{ duration: 0.28, ease: [0.25, 0.46, 0.45, 0.94] }}
             style={{ transformOrigin: "top right" }}
-            className="absolute top-[calc(100%+10px)] right-0 md:right-0 bg-white rounded-[12px] shadow-[0_8px_36px_rgba(0,0,0,0.18)] w-[220px] z-[1001] overflow-hidden"
+            className="absolute top-[calc(100%+10px)] right-0 md:right-0 bg-white rounded-[12px] shadow-[0_8px_36px_rgba(0,0,0,0.18)] w-[220px] z-[10002] overflow-hidden"
             role="listbox"
           >
             <div className="font-inter text-[10px] font-bold tracking-[0.15em] text-[#9CA3AF] px-[16px] pt-[12px] pb-[8px] uppercase">

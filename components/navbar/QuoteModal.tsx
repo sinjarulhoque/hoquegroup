@@ -60,11 +60,6 @@ export function QuoteModal({ isOpen, onClose, showToast }: QuoteModalProps) {
       setTimeout(() => {
         firstInputRef.current?.focus();
       }, 100);
-    } else {
-      setTimeout(() => {
-        document.body.style.overflow = "";
-        document.body.style.paddingRight = "";
-      }, 300);
     }
   }, [isOpen]);
 
@@ -194,7 +189,10 @@ export function QuoteModal({ isOpen, onClose, showToast }: QuoteModalProps) {
   };
 
   return (
-    <AnimatePresence>
+    <AnimatePresence onExitComplete={() => {
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
+    }}>
       {isOpen && (
         <>
           <motion.div
@@ -202,7 +200,7 @@ export function QuoteModal({ isOpen, onClose, showToast }: QuoteModalProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.35, ease: "easeOut" }}
-            className="fixed inset-0 bg-[#0A1E28]/[0.88] backdrop-blur-[4px] z-[1003]"
+            className="fixed inset-0 bg-[#0A1E28]/[0.88] backdrop-blur-[4px] z-[10003]"
             onClick={onClose}
           />
 
@@ -211,7 +209,7 @@ export function QuoteModal({ isOpen, onClose, showToast }: QuoteModalProps) {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.92, opacity: 0, y: 10 }}
             transition={{ duration: 0.4, ease: [0.34, 1.1, 0.64, 1] }}
-            className="fixed top-auto bottom-0 md:top-1/2 md:bottom-auto left-0 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 w-full md:w-[720px] max-w-full md:max-w-[calc(100vw-40px)] max-h-[92vh] md:max-h-[calc(100vh-80px)] bg-white rounded-t-[16px] md:rounded-[16px] z-[1004] flex flex-col shadow-[0_20px_60px_rgba(0,0,0,0.3)] overflow-hidden"
+            className="fixed top-auto bottom-0 md:top-1/2 md:bottom-auto left-0 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 w-full md:w-[720px] max-w-full md:max-w-[calc(100vw-40px)] max-h-[92vh] md:max-h-[calc(100vh-80px)] bg-white rounded-t-[16px] md:rounded-[16px] z-[10004] flex flex-col shadow-[0_20px_60px_rgba(0,0,0,0.3)] overflow-hidden pointer-events-auto"
             role="dialog"
             aria-modal="true"
             aria-labelledby="modal-title"

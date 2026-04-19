@@ -53,6 +53,17 @@
   --font-body: var(--font-inter), sans-serif;
   --font-label: var(--font-inter), sans-serif;
   --font-playfair: var(--font-playfair), serif;
+
+  --z-content: 1;
+  --z-float: 10;
+  --z-hero: 20;
+  --z-cookie: 9999;
+  --z-navbar: 10000;
+  --z-search: 10001;
+  --z-dropdown: 10002;
+  --z-overlay: 10003;
+  --z-modal: 10004;
+  --z-toast: 10005;
 }
 
 :root {
@@ -80,4 +91,20 @@ body {
 a, button, input, textarea, select, .transition-all, .transition-colors, .transition-transform, .transition-opacity {
   transition-timing-function: var(--animation-easing-smooth);
   transition-duration: 0.35s;
+}
+
+a, button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+main > section {
+  position: relative;
+  z-index: var(--z-content);
+  isolation: auto;
+}
+
+main > section::before,
+main > section::after {
+  pointer-events: none;
 }

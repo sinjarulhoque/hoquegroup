@@ -45,23 +45,65 @@ export function Navbar() {
 
   const pathname = usePathname();
 
+  const [activeSection, setActiveSection] = useState("");
+
+  useEffect(() => {
+    if (pathname !== "/") return;
+
+    const sections = ["home", "about", "services", "pages", "blog", "contact"];
+    const sectionElements = sections.map(id => document.getElementById(id)).filter(Boolean);
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    }, { rootMargin: "-40% 0px -50% 0px" });
+
+    sectionElements.forEach(el => observer.observe(el!));
+
+    return () => {
+      sectionElements.forEach(el => observer.unobserve(el!));
+    };
+  }, [pathname]);
+
   const isBusinessActive = ["/hoque-mercantile", "/hoque-industries", "/hoque-logistics", "/group-companies"].includes(pathname);
+
+  const isActive = (path: string) => {
+    if (pathname !== "/") {
+      return pathname === path.split('#')[0] && path !== "/"; // Non-home active state check
+    }
+    if (path.includes("#")) {
+      return activeSection === path.split('#')[1];
+    }
+    if (path === "/") {
+      return activeSection === "home" || activeSection === "";
+    }
+    return false;
+  };
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 80);
   });
 
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    }
+  }, [isMobileMenuOpen]);
+
   return (
     <>
       {/* Scroll Progress Indicator */}
       <motion.div 
-        className="fixed top-0 left-0 right-0 h-[3px] bg-[#ffc107] z-[100] origin-left"
+        className="fixed top-0 left-0 right-0 h-[3px] bg-[#ffc107] z-[10000] origin-left pointer-events-none"
         style={{ scaleX: scrollYProgress }}
       />
 
       {/* Main Navbar */}
-      <motion.header 
-        className={`fixed w-full z-[1000] transition-all duration-[400ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${
+      <header 
+        className={`fixed w-full z-[10000] isolate overflow-visible pointer-events-auto transition-[height,background-color,box-shadow] duration-[400ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] ${
           isScrolled 
             ? "top-0 bg-[#0D2E3D] shadow-[0_2px_20px_rgba(0,0,0,0.25)] h-[60px]" 
             : "top-0 bg-[#0D2E3D] shadow-none h-[72px]"
@@ -89,12 +131,13 @@ export function Navbar() {
             >
               <div
                 className={`relative font-inter font-medium whitespace-nowrap transition-colors duration-300 ease-out flex items-center text-[15px] ${
-                  pathname === "/" ? "text-[#B8960C]" : "text-white group-hover:text-[#B8960C]"
+                  isActive("/") ? "text-[#B8960C]" : "text-white group-hover:text-[#B8960C]"
                 }`}
                 tabIndex={0}
                 role="button"
                 aria-haspopup="true"
                 aria-expanded={homeHover}
+                onClick={() => setHomeHover(!homeHover)}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
@@ -107,7 +150,7 @@ export function Navbar() {
               >
                 Home
                 <ChevronDown className={`w-[14px] h-[14px] ml-[4px] transition-transform duration-300 ease-out ${homeHover ? 'rotate-180' : 'rotate-0'}`} />
-                <span className={`absolute -bottom-[1px] left-0 w-full h-[2px] bg-[#B8960C] origin-left transition-transform duration-300 ease-out ${pathname === "/" ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
+                <span className={`absolute -bottom-[1px] left-0 w-full h-[2px] bg-[#B8960C] origin-left transition-transform duration-300 ease-out ${isActive("/") ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`}></span>
               </div>
 
               {/* Dropdown Panel */}
@@ -118,13 +161,13 @@ export function Navbar() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -8 }}
                     transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
-                    className="absolute top-full left-0 mt-[8px] min-w-[200px] bg-white rounded-[8px] shadow-[0_8px_32px_rgba(0,0,0,0.16)] py-[8px] flex flex-col z-50 overflow-hidden"
+                    className="absolute top-full left-0 mt-[8px] min-w-[200px] bg-white rounded-[8px] shadow-[0_8px_32px_rgba(0,0,0,0.16)] py-[8px] flex flex-col z-[10002] overflow-hidden"
                   >
                     {[
                       { name: "Home", href: "/" },
-                      { name: "About Us", href: "/about" },
-                      { name: "Services", href: "/services" },
-                      { name: "Contact", href: "/contact" }
+                      { name: "About Us", href: "/#about" },
+                      { name: "Services", href: "/#services" },
+                      { name: "Contact", href: "/#contact" }
                     ].map((item, idx) => (
                       <Link 
                         key={idx}
@@ -142,13 +185,13 @@ export function Navbar() {
 
             {/* Plain Link: About Us */}
             <Link 
-              href="/about"
+              href="/#about"
               className={`relative font-inter font-medium whitespace-nowrap transition-colors duration-250 ease-out flex items-center text-[15px] focus:outline-none focus:text-[#B8960C] ${
-                pathname === "/about" ? "text-[#B8960C]" : "text-white hover:text-[#B8960C]"
+                isActive("/#about") ? "text-[#B8960C]" : "text-white hover:text-[#B8960C]"
               }`}
             >
               About Us
-              {pathname === "/about" && <span className="absolute -bottom-[1px] left-0 w-full h-[2px] bg-[#B8960C] scale-x-100"></span>}
+              {isActive("/#about") && <span className="absolute -bottom-[1px] left-0 w-full h-[2px] bg-[#B8960C] scale-x-100"></span>}
             </Link>
 
             {/* Our Business Dropdown */}
@@ -167,6 +210,7 @@ export function Navbar() {
                 role="button"
                 aria-haspopup="true"
                 aria-expanded={businessHover}
+                onClick={() => setBusinessHover(!businessHover)}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
@@ -190,7 +234,7 @@ export function Navbar() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-                    className="absolute top-full left-0 mt-[8px] min-w-[260px] bg-white rounded-[10px] shadow-[0_8px_40px_rgba(0,0,0,0.18)] py-[12px] flex flex-col z-50 overflow-hidden"
+                    className="absolute top-full left-0 mt-[8px] min-w-[260px] bg-white rounded-[10px] shadow-[0_8px_40px_rgba(0,0,0,0.18)] py-[12px] flex flex-col z-[10002] overflow-hidden"
                   >
                     <div className="font-inter text-[10px] font-bold tracking-[0.14em] text-[#9CA3AF] px-[20px] pt-[10px] pb-[6px] uppercase">
                       Group Companies
@@ -233,20 +277,20 @@ export function Navbar() {
 
             {/* Plain Links */}
             {[
-              { name: "Services", href: "/services" },
-              { name: "Pages", href: "/pages" },
-              { name: "Blog", href: "/blog" },
-              { name: "Contact", href: "/contact" }
+              { name: "Services", href: "/#services" },
+              { name: "Pages", href: "/#pages" },
+              { name: "Blog", href: "/#blog" },
+              { name: "Contact", href: "/#contact" }
             ].map((item) => (
               <Link 
                 key={item.name} 
                 href={item.href}
                 className={`relative font-inter font-medium whitespace-nowrap transition-colors duration-250 ease-out flex items-center text-[15px] focus:outline-none focus:text-[#B8960C] ${
-                  pathname === item.href ? "text-[#B8960C]" : "text-white hover:text-[#B8960C]"
+                  isActive(item.href) ? "text-[#B8960C]" : "text-white hover:text-[#B8960C]"
                 }`}
               >
                 {item.name}
-                {pathname === item.href && <span className="absolute -bottom-[1px] left-0 w-full h-[2px] bg-[#B8960C] scale-x-100"></span>}
+                {isActive(item.href) && <span className="absolute -bottom-[1px] left-0 w-full h-[2px] bg-[#B8960C] scale-x-100"></span>}
               </Link>
             ))}
           </div>
@@ -273,11 +317,11 @@ export function Navbar() {
           {/* Mobile Toggle */}
           <div className="md:hidden flex items-center gap-4">
             <button 
-              className="text-white hover:text-[#B8960C] transition-colors focus:outline-none"
+              className="text-white hover:text-[#B8960C] transition-colors focus:outline-none min-w-[44px] min-h-[44px] flex items-center justify-center p-2"
               aria-label="Search"
               onClick={() => setIsSearchOpen(true)}
             >
-              <Search className="w-[20px] h-[20px]" />
+              <Search className="w-[20px] h-[20px] pointer-events-none" />
             </button>
             <button 
               onClick={() => setIsQuoteOpen(true)}
@@ -287,16 +331,16 @@ export function Navbar() {
               Quote
             </button>
             <button 
-              className="text-white focus:outline-none"
+              className="text-white focus:outline-none min-w-[44px] min-h-[44px] flex items-center justify-center p-2 -mr-2"
               onClick={() => setIsMobileMenuOpen(true)}
               aria-label="Open Menu"
               aria-expanded={isMobileMenuOpen}
             >
-              <Menu className="w-[24px] h-[24px]" />
+              <Menu className="w-[24px] h-[24px] pointer-events-none" />
             </button>
           </div>
         </nav>
-      </motion.header>
+      </header>
 
       {/* External Components */}
       <SearchPanel isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
@@ -304,10 +348,10 @@ export function Navbar() {
       <ToastSystem toasts={toasts} removeToast={removeToast} />
 
       {/* Mobile Full Screen Menu */}
-      <AnimatePresence>
+      <AnimatePresence onExitComplete={() => { document.body.style.overflow = ""; }}>
         {isMobileMenuOpen && (
           <motion.div 
-            className="fixed inset-0 z-[1001] bg-[#0D2E3D] pt-[24px] px-[32px] overflow-y-auto overflow-x-hidden"
+            className="fixed inset-0 z-[10000] bg-[#0D2E3D] pt-[24px] px-[32px] overflow-y-auto overflow-x-hidden"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "100vh" }}
             exit={{ opacity: 0, height: 0 }}
@@ -329,7 +373,7 @@ export function Navbar() {
               {/* Home Mobile Link with native subitems */}
               <div className="w-full relative">
                 <button 
-                  className={`w-full h-[52px] flex items-center justify-between font-bold text-[18px] border-b border-white/[0.08] ${mobileHomeOpen ? 'text-[#B8960C]' : 'text-white'}`}
+                  className={`w-full h-[52px] flex items-center justify-between font-bold text-[18px] border-b border-white/[0.08] ${isActive("/") ? 'text-[#B8960C]' : 'text-white'}`}
                   onClick={() => setMobileHomeOpen(!mobileHomeOpen)}
                 >
                   Home
@@ -345,17 +389,17 @@ export function Navbar() {
                     >
                       {[
                         { name: "Home Dashboard", href: "/" },
-                        { name: "About Us", href: "/about" },
-                        { name: "Services", href: "/services" },
-                        { name: "Contact", href: "/contact" }
+                        { name: "About Us", href: "/#about" },
+                        { name: "Services", href: "/#services" },
+                        { name: "Contact", href: "/#contact" }
                       ].map((sub, idx) => (
                         <Link 
                           key={idx} 
                           href={sub.href}
                           onClick={() => setIsMobileMenuOpen(false)}
-                          className="w-full py-[12px] text-white flex items-center gap-[12px] font-medium text-[14px]"
+                          className={`w-full py-[12px] text-white flex items-center gap-[12px] font-medium text-[14px] ${isActive(sub.href) ? "text-[#B8960C]" : ""}`}
                         >
-                          <div className="w-[4px] h-[4px] rounded-full bg-[#B8960C]"></div>
+                          <div className={`w-[4px] h-[4px] rounded-full ${isActive(sub.href) ? "bg-[#B8960C]" : "bg-white/50"}`}></div>
                           {sub.name}
                         </Link>
                       ))}
@@ -365,9 +409,9 @@ export function Navbar() {
               </div>
 
                <Link 
-                href="/about" 
+                href="/#about" 
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="w-full h-[52px] flex items-center font-bold text-[18px] border-b border-white/[0.08] text-white"
+                className={`w-full h-[52px] flex items-center font-bold text-[18px] border-b border-white/[0.08] ${isActive("/#about") ? "text-[#B8960C]" : "text-white"}`}
               >
                 About Us
               </Link>
@@ -412,16 +456,16 @@ export function Navbar() {
 
               {/* Remaining Mobile Links */}
               {[
-                { name: "Services", href: "/services" },
-                { name: "Pages", href: "/pages" },
-                { name: "Blog", href: "/blog" },
-                { name: "Contact", href: "/contact" }
+                { name: "Services", href: "/#services" },
+                { name: "Pages", href: "/#pages" },
+                { name: "Blog", href: "/#blog" },
+                { name: "Contact", href: "/#contact" }
               ].map((item, idx) => (
                 <Link 
                   key={idx}
                   href={item.href} 
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`w-full h-[52px] flex items-center font-bold text-[18px] text-white ${idx !== 3 ? 'border-b border-white/[0.08]' : ''}`}
+                  className={`w-full h-[52px] flex items-center font-bold text-[18px] ${idx !== 3 ? 'border-b border-white/[0.08]' : ''} ${isActive(item.href) ? 'text-[#B8960C]' : 'text-white'}`}
                 >
                   {item.name}
                 </Link>

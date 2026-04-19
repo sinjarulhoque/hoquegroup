@@ -43,7 +43,7 @@ export function HeroSlider() {
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <section id="home" className="relative h-[90vh] min-h-[600px] w-full overflow-hidden flex items-center">
+    <section id="home" className="relative h-[90vh] min-h-[600px] w-full overflow-hidden flex items-center z-[1]">
       <AnimatePresence mode="popLayout">
         <motion.div
           key={currentSlide}
@@ -51,9 +51,9 @@ export function HeroSlider() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6, ease: "linear" }}
-          className="absolute inset-0 z-0"
+          className="absolute inset-0 z-0 pointer-events-none"
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-transparent z-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-transparent z-10 pointer-events-none" />
           <Image
             src={slides[currentSlide].image}
             alt={slides[currentSlide].title}

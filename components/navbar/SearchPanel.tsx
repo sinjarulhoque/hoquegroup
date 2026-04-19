@@ -69,11 +69,6 @@ export function SearchPanel({ isOpen, onClose }: SearchPanelProps) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setFocusedIndex(-1);
       return () => clearTimeout(timer);
-    } else {
-      setTimeout(() => {
-        document.body.style.overflow = "";
-        document.body.style.paddingRight = "";
-      }, 300);
     }
   }, [isOpen]);
 
@@ -117,12 +112,15 @@ export function SearchPanel({ isOpen, onClose }: SearchPanelProps) {
   };
 
   return (
-    <AnimatePresence>
+    <AnimatePresence onExitComplete={() => {
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
+    }}>
       {isOpen && (
         <>
           {/* Invisible overlay to catch clicks outside results dropdown and close panel */}
           <motion.div 
-            className="fixed inset-0 z-[1001] bg-black/20"
+            className="fixed inset-0 z-[10001] bg-black/20"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -134,7 +132,7 @@ export function SearchPanel({ isOpen, onClose }: SearchPanelProps) {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -64, opacity: 0 }}
             transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="fixed top-[72px] left-0 right-0 h-[64px] bg-white shadow-[0_8px_32px_rgba(0,0,0,0.18)] z-[1002] flex flex-col"
+            className="fixed top-[72px] left-0 right-0 h-[64px] bg-white shadow-[0_8px_32px_rgba(0,0,0,0.18)] z-[10001] flex flex-col pointer-events-auto"
           >
             <div className="flex-1 flex flex-row items-center px-[20px] md:px-[40px] gap-[16px]">
               <Search className="w-[20px] h-[20px] text-[#B8960C] shrink-0" />
